@@ -17,6 +17,8 @@ services:
       - media_volume:/app/media
     environment:
       - DEBUG=0
+    depends_on:
+      - db
 
   db:
     container_name: cookhelper-db
