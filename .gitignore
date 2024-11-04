@@ -1,6 +1,3 @@
-.vscode/
-*.sqlite3
-*.pyc
-./frontend/node_modules/*
 *.env
-
+*.sqlite3
+.vscode/
