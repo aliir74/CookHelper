@@ -18,7 +18,7 @@ function FoodsSection() {
   const submitHandler = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(import.meta.env.VITE_API_URL + "/foods/", {
+      const response = await fetch("/api/v1/foods/", {
         method: "POST",
         body: JSON.stringify({
           ingredients: selectedIngredients,

@@ -8,7 +8,7 @@ function IngredientSection() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(import.meta.env.VITE_API_URL + "/foods/");
+        const response = await fetch("/api/v1/foods/");
         if (!response.ok) {
           throw new Error("Failed to fetch foods");
         }
