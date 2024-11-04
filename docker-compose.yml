@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   frontend:
     image: aliir74/cookhelper-frontend:latest

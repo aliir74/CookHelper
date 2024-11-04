@@ -17,10 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-
+from django.views.static import serve
 from foods.views import LandingPageView
+from mysite import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/foods/", LandingPageView.as_view(), name="landing_page"),
+    path("static/", serve, {"document_root": settings.STATIC_ROOT}),
 ]
