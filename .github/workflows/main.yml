@@ -64,3 +64,4 @@ jobs:
             docker compose pull
             docker compose down
             docker compose up -d
+            docker compose exec backend python manage.py migrate

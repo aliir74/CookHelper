@@ -27,10 +27,6 @@ RUN python manage.py collectstatic --noinput
 # Compile messages for translations
 RUN python manage.py compilemessages
 
-# Run migrations and load fixtures
-RUN python manage.py migrate
-# RUN python manage.py loaddata foods/fixtures/ingredients.json foods/fixtures/foods.json
-
 # Expose port
 EXPOSE 8000
 
