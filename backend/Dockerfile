@@ -27,5 +27,5 @@ RUN python manage.py collectstatic --noinput
 # Compile messages for translations
 RUN python manage.py compilemessages
 
-# Start server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Start Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "mysite.wsgi:application"]
