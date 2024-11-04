@@ -17,6 +17,8 @@ services:
   backend:
     container_name: cookhelper-backend
     image: aliir74/cookhelper-backend:latest
+    ports:
+      - "8000:8000"
     volumes:
       - static_volume:/app/static
       - media_volume:/app/media

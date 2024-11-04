@@ -28,4 +28,4 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py compilemessages
 
 # Start Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "mysite.wsgi:application"]
+CMD ["gunicorn", "-c", "gunicorn.conf.py", "mysite.wsgi:application"]
