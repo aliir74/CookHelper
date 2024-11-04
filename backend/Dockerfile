@@ -27,8 +27,5 @@ RUN python manage.py collectstatic --noinput
 # Compile messages for translations
 RUN python manage.py compilemessages
 
-# Expose port
-EXPOSE 8000
-
 # Start server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver"]

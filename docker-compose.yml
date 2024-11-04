@@ -2,7 +2,7 @@ services:
   frontend:
     image: aliir74/cookhelper-frontend:latest
     ports:
-      - "80:80"
+      - "4000:80"
     depends_on:
       - backend
     environment:
