@@ -19,6 +19,8 @@ RUN npm run build
 # Production stage - just create a directory with the built files
 FROM nginx:alpine
 
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Copy built files from builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
 
