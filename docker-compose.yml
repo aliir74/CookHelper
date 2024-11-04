@@ -13,7 +13,7 @@ services:
     volumes:
       - static_volume:/app/static
       - media_volume:/app/media
-      - db.sqlite3:/app/db.sqlite3
+      - /root/cookhelper/db.sqlite3:/app/db.sqlite3
     environment:
       - DEBUG=0
       - ALLOWED_HOSTS=cookhelper.aliirani.com
