@@ -1,5 +1,6 @@
 services:
   frontend:
+    container_name: cookhelper-frontend
     image: aliir74/cookhelper-frontend:latest
     ports:
       - "4000:80"
@@ -9,6 +10,7 @@ services:
       - VITE_API_URL=http://cookhelper.aliirani.com/api/v1
 
   backend:
+    container_name: cookhelper-backend
     image: aliir74/cookhelper-backend:latest
     volumes:
       - static_volume:/app/static
@@ -17,6 +19,7 @@ services:
       - DEBUG=0
 
   db:
+    container_name: cookhelper-db
     image: postgres:16.1
     volumes:
       - db_volume:/var/lib/postgresql/data

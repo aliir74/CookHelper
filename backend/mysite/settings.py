@@ -90,7 +90,7 @@ DATABASES = {
         "NAME": "cookhelper",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "db",
+        "HOST": "cookhelper-db",
         "PORT": "5432",
     }
 }
