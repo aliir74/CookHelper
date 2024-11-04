@@ -1,13 +1,29 @@
 services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - frontend-dist:/usr/share/nginx/html:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+
   frontend:
     container_name: cookhelper-frontend
     image: aliir74/cookhelper-frontend:latest
-    ports:
-      - "4000:80"
+    volumes:
+      - frontend-dist:/dist
     depends_on:
       - backend
     environment:
-      - VITE_API_URL=http://cookhelper.aliirani.com/api/v1
+      - VITE_API_URL=https://cookhelper.aliirani.com/api/v1
     networks:
       - app-network
 
@@ -43,6 +59,7 @@ services:
       - app-network
 
 volumes:
+  frontend-dist:
   static_volume:
   media_volume:
   db_volume:

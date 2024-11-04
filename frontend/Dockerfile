@@ -16,14 +16,8 @@ COPY . .
 # Build the project
 RUN npm run build
 
-# Production stage
-FROM nginx:alpine
-
-# Copy custom nginx config if needed
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Production stage - just create a directory with the built files
+FROM scratch
 
 # Copy built files from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/dist /dist
