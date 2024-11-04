@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "docker-compose.yml"
-          target: "/opt/cookhelper"
+          target: "~/cookhelper"
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.0.3
@@ -60,7 +60,7 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             docker system prune -f --all
-            cd /opt/cookhelper
+            cd ~/cookhelper
             docker compose pull
             docker compose down
             docker compose up -d
