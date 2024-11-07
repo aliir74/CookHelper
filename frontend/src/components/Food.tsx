@@ -13,7 +13,7 @@ function Food({
 }) {
   if (!food || !selectedIngredients) {
     return (
-      <div className="card flex w-1/4 cursor-pointer border-2 border-transparent bg-base-100 shadow-xl hover:border-success hover:shadow-2xl">
+      <div className="card flex w-64 cursor-pointer border-2 border-transparent bg-base-100 shadow-xl hover:border-success hover:shadow-2xl">
         <div className="card-body">
           <div className="card-title skeleton h-10 w-20"></div>
           <div className="flex w-full flex-row">
@@ -37,11 +37,11 @@ function Food({
     } `;
   };
   return (
-    <div className="card flex w-1/4 cursor-pointer border-2 border-transparent bg-base-100 shadow-xl hover:border-success hover:shadow-2xl">
+    <div className="card flex h-64 w-64 cursor-pointer border-2 border-transparent bg-base-100 shadow-xl hover:border-success hover:shadow-2xl">
       <div className="card-body">
         <div className="card-title">{food.name}</div>
-        <div className="flex w-full flex-row">
-          <div className="flex w-full flex-row justify-between">
+        <div className="flex h-full w-full flex-row">
+          <div className="flex w-full flex-row items-center justify-between">
             <div>
               <span>
                 <FontAwesomeIcon icon={faClock} />
@@ -65,13 +65,12 @@ function Food({
             </div>
           </div>
         </div>
-        <div className="divider my-1"></div>
-        <div className="flex w-full flex-row flex-wrap justify-between">
+        <div className="divider h-full items-center"></div>
+        <div className="flex h-full w-full flex-row flex-wrap items-center justify-between gap-2">
           {food.ingredients.map((ingredient) => (
-            // TODO: make responsive
             <div
               key={ingredient.name}
-              className={`badge badge-outline m-1 p-1 ${
+              className={`badge badge-outline m-1 p-2 ${
                 selectedIngredients.some(
                   (selectedIngredient) =>
                     selectedIngredient.name === ingredient.name,

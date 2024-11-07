@@ -4,6 +4,7 @@ import { TEXTS } from "../types/consts";
 import { useEffect } from "react";
 import { useCallback } from "react";
 import FoodType from "../types/food";
+import { FOOD_API_URL } from "../consts";
 function FoodsSection() {
   const {
     foods,
@@ -18,7 +19,7 @@ function FoodsSection() {
   const submitHandler = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch("/api/v1/foods/", {
+      const response = await fetch(FOOD_API_URL, {
         method: "POST",
         body: JSON.stringify({
           ingredients: selectedIngredients,
@@ -52,7 +53,7 @@ function FoodsSection() {
         <span className="card-title m-1 justify-center text-4xl text-gray-700">
           {isLoading ? TEXTS.loading : TEXTS.foods}
         </span>
-        <div className="flex flex-wrap justify-around gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           {isLoading ? (
             <>
               <Food />

@@ -25,14 +25,16 @@ function IngredientCategoryDropDown({
   );
 
   return (
-    <div className="card flex max-h-32 max-w-48 cursor-pointer bg-base-100 shadow-xl">
+    <div className="card flex h-16 w-40 cursor-pointer flex-row items-center justify-center bg-base-100 shadow-xl">
       <div className="card-body dropdown dropdown-hover">
         <div
           tabIndex={0}
           role="button"
-          className={`card-title ${isAnySelected ? "text-success" : ""}`}
+          className={`card-title flex flex-row items-center justify-center ${
+            isAnySelected ? "text-success" : ""
+          }`}
         >
-          <span className="text-xl">{icon}</span>
+          <span className="self-stretch">{icon}</span>
           {title}
         </div>
         <ul

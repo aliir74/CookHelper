@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import IngredientCategoryDropDown from "./IngredientCategory";
 import { useAppContext } from "../hooks/useAppContext";
 import CategoryType from "../types/category";
+import { FOOD_API_URL } from "../consts";
 
 function IngredientSection() {
   const { categories, setCategories } = useAppContext();
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("/api/v1/foods/");
+        const response = await fetch(FOOD_API_URL);
         if (!response.ok) {
           throw new Error("Failed to fetch foods");
         }
